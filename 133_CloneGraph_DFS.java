@@ -15,26 +15,22 @@ public class CloneGraphDFS {
 	    public Node() {}
 
 	    public Node(int _val,List<Node> _neighbors) {
-	        val = _val;
-	        neighbors = _neighbors;
+		val = _val;
+		neighbors = _neighbors;
 	    }
 	}
-	
+
 	private ArrayList<Integer> checkedNodes = new ArrayList<>();
 	private HashMap<Integer,Node> graphMemory = new HashMap<>();
 
-    public Node cloneGraph(Node node) {
-    	return DFS(node);
-    }
-	
-	public Node DFS(Node nodeInput) {
+	public Node cloneGraph(Node nodeInput) {
 		if (!checkedNodes.contains(nodeInput.val)) {
 			List<Node> neighbors = new ArrayList<>();
 			if (!graphMemory.containsKey(nodeInput.val))
 				graphMemory.put(nodeInput.val, new Node());
 			checkedNodes.add(nodeInput.val);
 			for (Node key: nodeInput.neighbors) {
-				DFS(key);
+				cloneGraph(key);
 				neighbors.add(graphMemory.get(key.val));
 			}
 			graphMemory.get(nodeInput.val).neighbors = neighbors;
