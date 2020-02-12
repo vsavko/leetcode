@@ -14,7 +14,41 @@ return its level order traversal as:
   [15,7]
 ]*/
   
-  public List<List<Integer>> levelOrder(TreeNode root){
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
+public class BinaryTreeLevelOrderTraversal {
+	
+   //slow solution uing queue
+   /* public List<List<Integer>> levelOrder(TreeNode root) {
+    	
+    	Deque<TreeNode> nodes = new ArrayDeque<>();
+    	
+		List<List<Integer>> ans = new ArrayList<>();
+		if (root == null) return ans;
+		
+    	nodes.push(root);
+		
+		while(!nodes.isEmpty()) {
+			ArrayList<Integer> tmp = new ArrayList<>();
+			Deque<TreeNode> children = new ArrayDeque<>();
+	        while(!nodes.isEmpty()) {
+	        	TreeNode node = nodes.pop();
+	        	tmp.add(node.val);
+	        	if (node.left != null)
+	        		children.add(node.left);
+	        	if (node.right != null)
+	        		children.add(node.right);
+	        }
+	        nodes = children;
+	        ans.add(tmp);
+		}
+		return ans;
+    }*/
+    
+	public List<List<Integer>> levelOrder(TreeNode root){
 		ArrayList<List<Integer>> answer = new ArrayList<>();
 		return levelOrder2(root, 1 , answer);
 	}
@@ -27,3 +61,5 @@ return its level order traversal as:
     	levelOrder2(root.right, level +1, answer);
 		return answer;
     }
+    
+}
