@@ -20,18 +20,16 @@ public class ConvertSortedListToBST {
 	
 	 public TreeNode sortedListToBST(ListNode head) {
 	        //count nodes
-		 	int count  = 0;
-		 	ListNode tmpHead = head;
-		 	while (tmpHead != null) {
-		 		count++;
-		 		tmpHead = tmpHead.next;
-		 	}
-		 	//reccur
-		 	currentHead = head;
-		 	return buildBST(count);
+		int count  = 0;
+		ListNode tmpHead = head;
+		while (tmpHead != null) {
+			count++;
+			tmpHead = tmpHead.next;
+		}
+		//reccur
+		currentHead = head;
+		return buildBST(count);
 	 }
-	 
-	 
 	 
 	 public TreeNode buildBST(int count) {
 		 if (count == 0) return null;
@@ -41,7 +39,6 @@ public class ConvertSortedListToBST {
 		 currentHead = currentHead.next;
 		 tn2.left = left;
 		 tn2.right = buildBST(count-medium);
-		 return tn2;
-		 
+		 return tn2; 
 	 }
 }
