@@ -3,7 +3,7 @@ class Solution {
     	if (coordinates.length == 2) return true;
     	
     	for(int i = 2; i < coordinates.length; i++) {
-			//y = a*x +c - the line formula
+		//y = a*x +c - the line formula
     		//a1 = (y1- y2) / (x1 - x2)
     		//ai = (y1- yi) / (x1 - xi)
     		//a1 == ai iff (y1-y2) / (x1 - x2) == (y1- yi) / (x1 - xi)
