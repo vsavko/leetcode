@@ -10,7 +10,7 @@
 public class Codec {
 
 	
-    // Encodes a tree to a single string.
+    // Encodes a tree to a single string. Using preorder traversal
     public String serialize(TreeNode root) {
     	if (root == null)
     		return "";
@@ -29,10 +29,8 @@ public class Codec {
     public TreeNode deserialize(String data) {
     	if (data == "") return null;
     	String[] items = data.split(",");
-    	//System.out.println(Arrays.toString(items) + items.length);
     	if (items.length < 1) return null;
     	Stack<TreeNode> stack = new Stack<>();
-    	
     	TreeNode ansNode = new TreeNode(Integer.parseInt(items[0]));
     	TreeNode currentNode = ansNode;
     	
@@ -52,8 +50,6 @@ public class Codec {
 			}   
 			currentNode = node;
     	}
-    	//System.out.println(Arrays.toString(items));
-    	//System.out.println(stack.firstElement().val);
     	return ansNode;
     }
 }
